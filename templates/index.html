@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+       
+
+        .con {
+            text-align: center;
+           
+
+        }
+        .con img{
+            display:inline-flex;
+            justify-content:center;
+            align-items: center;
+            max-width: 100%;
+            height: auto;
+        }
+        
+         .inp{
+           
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .in{
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            width:300px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        h3{
+            background-color:chocolate; 
+            text-align: center;
+            color: black;
+            margin-top: 25px;
+        }
+       
+   
+    </style>
+</head>
+
+<body>
+    <div class="con">
+        <h1>
+            Can check whether you have Diabetes or not ?
+        </h1>
+        <img src="../static/img/blood.jpg" alt="error">
+    
+        
+    </div>
+    <br><br>
+
+<form action="{{url_for('predict')}}" method="post">
+    <div class="inp">
+        <div class="in">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required="required" placeholder="age">
+        </div>
+        <div class="in">
+            <label for="hypertension">HyperTension</label>
+            <input type="number" id="hypertension" name="hypertension" required="hypertension" placeholder="hypertension">
+        </div>
+        <div class="in">
+            <label for="heart_disease">heart_disease</label>
+            <input type="number" id="heart_disease" name="heart_disease" required="heart_disease" placeholder="heart_disease">
+        </div>
+        <div class="in">
+            <label for="bmi">bmi</label>
+            <input type="number" id="bmi" name="bmi" required="bmi" placeholder="bmi">
+        </div>
+        <div class="in">
+            <label for="HbA1c_level">HbA1c_level</label>
+            <input type="number" id="HbA1c_level" name="HbA1c_level" required="HbA1c_level" placeholder="HbA1c_level">
+        </div>
+        <div class="in">
+            <label for="blood_glucose_level">blood_glucose_level</label>
+            <input type="number" id="blood_glucose_level" name="blood_glucose_level" required="blood_glucose_level" placeholder="blood_glucose_level">
+        </div>
+        <br><br><br>
+        <button type="submit" class="btn btn-danger">Predict</button>
+
+
+
+
+
+    </div>
+</form>
+    <h3>
+        
+        {{ prediction_text }}
+    </h3>
+    <br><br>
+
+</body>
+
+</html>
